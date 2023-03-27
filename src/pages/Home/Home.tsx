@@ -1,20 +1,21 @@
 import React from 'react';
 import Banner from '../../component/moleculs/banner/Banner'
-import {Outlet} from 'react-router-dom';
+import {Outlet,Navigate,useLocation } from 'react-router-dom';
+import Content from '../../component/moleculs/content/Content';
 import './home.css'
 
 const Home = () => {
+const path =useLocation()
+if (path.pathname=='/'){
+  return <Navigate to="/topics/business"/>
+}
+
   return (
     <>
       <div className="container">
         <Banner/>
       </div>
-      <div className='container'>
-          <h2>Hot News</h2>
-          <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. </p>
-      </div>
       <Outlet/>
-
     </>
   )
 };

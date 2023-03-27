@@ -2,12 +2,13 @@
    width: 95%;
    margin: 2em auto;
    display: flex;
+   background-color: white;
 }
 .container-nav>:first-child{
    width: 95%;
 }
 .container-nav>:last-child{
    background: #fff;
-   padding-top: 0.5em;
+   margin: auto;
    border-bottom: 1px solid #f3f3f3;
 }

@@ -1,34 +1,21 @@
 import React, { useEffect, useState } from 'react';
 import { Carousel } from 'antd';
-import axios from 'axios';
-// import images from '../../../../public/assets/alex-marquez.jpeg'
+import { newsApi } from '../../../api/newsApi';
+
+import type { ResType } from './index.d';
+
+import images from '../../../assets/alex-marquez.jpeg'
 import './banner.css'
 
-
-interface Article{
-  author?:string,
-  content?:string,
-  description?:string,
-  publishedAt?:string
-  source?:{
-    id?:string,
-    name?:string
-  },
-  title?:string,
-  url?:string,
-  urlToImage?:string
-}[]
 const Banner = () => { 
 
-  const [articles,setArticles] = useState<Article[]>([] as Article[])
+  const [articles,setArticles] = useState<ResType[]>([] as ResType[])
   
   const get = async ()  => {
-    await axios.get('https://newsapi.org/v2/top-headlines',{
-      params: { 
-        country: "id", 
-        apiKey: '1795b94d26114a2d9dabb6eadbbd8593',
-        pageSize: 5,
-      },
+    await newsApi.getHeadLine({
+      page:5,
+      category:'general',
+      country:'id'
     }).then(response =>setArticles(response.data.articles));
   }
   useEffect(()=>{
@@ -36,10 +23,11 @@ const Banner = () => {
   },[])
 
   return(
-    <Carousel autoplay >
-      {articles.map((item, i) => (
-        <div key={i} style={{background:`url("http://localhost:3000/assets/alex-marquez.jpeg")`}} >
-          <h3 className='content-style'>{item.title}</h3>
+    <Carousel autoplay speed={1000} autoplaySpeed={5000}>
+      {articles.map((article, i) => (
+        <div key={i} className='banner' >
+          <img src={article.urlToImage?article.urlToImage:images} alt="" />
+          <h3 className='content-style'>{article.title}</h3>
         </div>
       ))}
 

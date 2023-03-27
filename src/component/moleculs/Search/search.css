@@ -1,0 +1,11 @@
+.left{
+   width: 70%;
+   height: 100vh;
+   overflow-y: auto;
+}
+.left::-webkit-scrollbar{
+  display: none;
+}
+.display{
+   display: flex;
+}

@@ -1,5 +1,5 @@
 import Layout from './component/layout';
-import Detail from './pages/Detail';
+import Detail from './pages/Detail/Detail';
 import Content from './component/moleculs/content/Content';
 import {
   createBrowserRouter,
@@ -7,7 +7,7 @@ import {
 } from "react-router-dom";
 import React from 'react'
 import Home from './pages/Home/Home';
-
+import SearchCard from './component/moleculs/Search/SearchCard';
 export default function App() {
   
   const router = createBrowserRouter([
@@ -28,6 +28,14 @@ export default function App() {
         {
           path: '/detail',
           element: <Detail />,
+        },
+        {
+          path: '/news/search',
+          element: <SearchCard />,
+        },
+        {
+          path: '/*',
+          element: <h1 className='container'>404</h1>,
         },
       ],
     },
