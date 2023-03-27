@@ -1,0 +1,14 @@
+.container-detail{
+   padding: 3em;
+   background: white;
+}
+.container-detail>:first-child{
+   display: flex;
+   flex-direction: column;
+   justify-content: flex-start;
+}
+.container-detail>img{
+   margin-top: 2em;
+   min-width: 50%;
+   min-height: 10em;
+}
