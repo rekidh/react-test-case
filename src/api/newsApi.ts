@@ -1,7 +1,6 @@
 import axios from 'axios'
 
 const baseUrl ='https://newsapi.org/v2'
-// const apiKey = '1795b94d26114a2d9dabb6eadbbd8593'
 const apiKey = 'b77f1b29ea3743aeb73ced232201af0e'
 
 const  headers={"Content-Type": "application/json"}
